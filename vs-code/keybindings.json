@@ -1,0 +1,27 @@
+// Place your key bindings in this file to override the defaults
+[
+  {
+    "key": "ctrl+delete",
+    "command": "-editor.action.clipboardCutAction"
+  },
+  {
+    "key": "ctrl+win+up",
+    "command": "cursorMove",
+    "args": {
+      "to": "up",
+      "by": "halfLine",
+      "value": 5
+    },
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+win+down",
+    "command": "cursorMove",
+    "args": {
+      "to": "down",
+      "by": "halfLine",
+      "value": 5
+    },
+    "when": "editorTextFocus"
+  }
+]

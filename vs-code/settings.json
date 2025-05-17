@@ -1,0 +1,72 @@
+{
+  // "editor.defaultFormatter": "testdouble.vscode-standard-ruby"
+  "[go]": {
+    "editor.formatOnSave": false
+  },
+  "breadcrumbs.enabled": false,
+  "chat.commandCenter.enabled": false,
+  "editor.copyWithSyntaxHighlighting": false,
+  "editor.cursorBlinking": "blink",
+  "editor.cursorStyle": "block",
+  "editor.dragAndDrop": false,
+  // "editor.formatOnSaveMode": "modificationsIfAvailable",
+  "editor.fontFamily": "Cascadia Mono, 'Courier New', monospace",
+  "editor.fontLigatures": false,
+  "editor.fontSize": 16,
+  "editor.fontWeight": 300,
+  "editor.formatOnSave": true,
+  "editor.formatOnSaveMode": "file",
+  "editor.glyphMargin": false,
+  "editor.inlineSuggest.enabled": true,
+  "editor.letterSpacing": -1,
+  "editor.lineHeight": 1,
+  "editor.links": false,
+  "editor.minimap.enabled": false,
+  "editor.occurrencesHighlight": "multiFile",
+  "editor.renderControlCharacters": false,
+  "editor.renderWhitespace": "trailing",
+  "editor.rulers": [
+    80
+  ],
+  "editor.showFoldingControls": "mouseover",
+  "editor.stickyScroll.enabled": false,
+  "editor.tabSize": 2,
+  "editor.trimAutoWhitespace": true,
+  "editor.wordSeparators": "`~!@#$%^&*()=+[{]}\\|;:'\",.<>/?", // remove dash
+  "editor.wordWrap": "on",
+  "emmet.includeLanguages": {
+    "erb": "html"
+  },
+  "explorer.compactFolders": false,
+  "github.copilot.advanced": {
+    "useLanguageServer": true
+  },
+  // GitHub Copilot
+  "github.copilot.enable": {
+    "*": true,
+    "markdown": false,
+    "plaintext": false,
+    "scminput": false
+  },
+  // "github.copilot.nextEditSuggestions.enabled": true,
+  "github.copilot.renameSuggestions.triggerAutomatically": true,
+  "gitlens.codeLens.enabled": false,
+  "gitlens.currentLine.scrollable": false,
+  "gitlens.hovers.currentLine.over": "line",
+  "problems.decorations.enabled": false,
+  "window.commandCenter": false,
+  "window.title": "${activeRepositoryBranchName}${separator}${activeEditorShort}${separator}${rootName}${separator}${profileName}",
+  "workbench.activityBar.location": "hidden",
+  "workbench.colorCustomizations": {
+    "editorOverviewRuler.infoForeground": "#0000",
+    "editorOverviewRuler.warningForeground": "#0000"
+  },
+  "workbench.colorTheme": "Gruvbox Dark Hard",
+  "workbench.editor.enablePreview": false,
+  "workbench.editor.wrapTabs": true,
+  "workbench.layoutControl.enabled": false,
+  "workbench.statusBar.visible": false,
+  "workbench.tree.enableStickyScroll": false,
+  "workbench.tree.indent": 10,
+  "workbench.tree.renderIndentGuides": "always"
+}
