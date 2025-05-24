@@ -56,7 +56,16 @@
   "workbench.activityBar.location": "hidden",
   "workbench.colorCustomizations": {
     "editorOverviewRuler.infoForeground": "#0000",
-    "editorOverviewRuler.warningForeground": "#0000"
+    "editorOverviewRuler.warningForeground": "#0000",
+    "[Gruvbox Dark Hard]": {
+      "editorIndentGuide.activeBackground1": "#6c6c6c",
+    },
+    "[Gruvbox Dark Medium]": {
+      "editorIndentGuide.activeBackground1": "#6c6c6c",
+    },
+    "[Gruvbox Dark Soft]": {
+      "editorIndentGuide.activeBackground1": "#6c6c6c",
+    },
   },
   "workbench.colorTheme": "Gruvbox Dark Hard",
   "workbench.editor.wrapTabs": true,
