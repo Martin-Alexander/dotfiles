@@ -116,3 +116,12 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+export PATH=$PATH:/usr/local/go/bin
+
+if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+  . /etc/bash_completion
+fi
+
+bind 'set show-all-if-ambiguous on'
+bind 'TAB:menu-complete'

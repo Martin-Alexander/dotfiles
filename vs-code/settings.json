@@ -1,15 +1,14 @@
 {
-  // "editor.defaultFormatter": "testdouble.vscode-standard-ruby"
   "[go]": {
-    "editor.formatOnSave": false
+    "editor.formatOnSave": true
   },
   "breadcrumbs.enabled": false,
   "chat.commandCenter.enabled": false,
   "editor.copyWithSyntaxHighlighting": false,
   "editor.cursorBlinking": "blink",
   "editor.cursorStyle": "block",
+  "editor.cursorSurroundingLines": 10,
   "editor.dragAndDrop": false,
-  // "editor.formatOnSaveMode": "modificationsIfAvailable",
   "editor.fontFamily": "Cascadia Mono, 'Courier New', monospace",
   "editor.fontLigatures": false,
   "editor.fontSize": 16,
@@ -41,14 +40,12 @@
   "github.copilot.advanced": {
     "useLanguageServer": true
   },
-  // GitHub Copilot
   "github.copilot.enable": {
     "*": true,
     "markdown": false,
     "plaintext": false,
     "scminput": false
   },
-  // "github.copilot.nextEditSuggestions.enabled": true,
   "github.copilot.renameSuggestions.triggerAutomatically": true,
   "gitlens.codeLens.enabled": false,
   "gitlens.currentLine.scrollable": false,
@@ -62,7 +59,6 @@
     "editorOverviewRuler.warningForeground": "#0000"
   },
   "workbench.colorTheme": "Gruvbox Dark Hard",
-  "workbench.editor.enablePreview": false,
   "workbench.editor.wrapTabs": true,
   "workbench.layoutControl.enabled": false,
   "workbench.statusBar.visible": false,
