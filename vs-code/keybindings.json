@@ -1,27 +1,52 @@
 // Place your key bindings in this file to override the defaults
 [
   {
-    "key": "ctrl+delete",
-    "command": "-editor.action.clipboardCutAction"
+    "command": "-editor.action.clipboardCutAction",
+    "key": "ctrl+delete"
   },
   {
-    "key": "ctrl+win+up",
-    "command": "cursorMove",
     "args": {
+      "by": "halfLine",
       "to": "up",
-      "by": "halfLine",
       "value": 5
     },
+    "command": "cursorMove",
+    "key": "ctrl+win+up",
     "when": "editorTextFocus"
   },
   {
-    "key": "ctrl+win+down",
-    "command": "cursorMove",
     "args": {
-      "to": "down",
       "by": "halfLine",
+      "to": "down",
       "value": 5
     },
+    "command": "cursorMove",
+    "key": "ctrl+win+down",
     "when": "editorTextFocus"
+  },
+  {
+    "command": "-workbench.action.terminal.openNativeConsole",
+    "key": "ctrl+shift+c",
+    "when": "!terminalFocus"
+  },
+  {
+    "command": "copyRelativeFilePath",
+    "key": "ctrl+shift+c",
+    "when": "!editorFocus"
+  },
+  {
+    "command": "-copyRelativeFilePath",
+    "key": "ctrl+k ctrl+shift+c",
+    "when": "!editorFocus"
+  },
+  {
+    "command": "copyRelativeFilePath",
+    "key": "ctrl+shift+c",
+    "when": "editorFocus"
+  },
+  {
+    "command": "-copyRelativeFilePath",
+    "key": "ctrl+k ctrl+shift+c",
+    "when": "editorFocus"
   }
 ]

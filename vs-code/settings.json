@@ -2,6 +2,9 @@
   "[go]": {
     "editor.formatOnSave": true
   },
+  "[ruby]": {
+    "editor.formatOnSave": false,
+  },
   "breadcrumbs.enabled": false,
   "chat.commandCenter.enabled": false,
   "editor.copyWithSyntaxHighlighting": false,
@@ -31,7 +34,6 @@
   "editor.stickyScroll.enabled": false,
   "editor.tabSize": 2,
   "editor.trimAutoWhitespace": true,
-  "editor.wordSeparators": "`~!@#$%^&*()=+[{]}\\|;:'\",.<>/?", // remove dash
   "editor.wordWrap": "on",
   "emmet.includeLanguages": {
     "erb": "html"
