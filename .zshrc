@@ -29,8 +29,7 @@ function git_status_count {
 
   while IFS= read -r file; do
     [[ -f "$file" ]] && {
-      local lines
-      lines=$(wc -l < "$file" | tr -d " " 2>/dev/null) && [[ $lines =~ ^[0-9]+$ ]] && ((lines_added += lines))
+      local lines=$(wc -l < "$file" | tr -d " " 2>/dev/null) && [[ $lines =~ ^[0-9]+$ ]] && ((lines_added += lines))
     }
   done < <(git ls-files --others --exclude-standard 2>/dev/null)
 
