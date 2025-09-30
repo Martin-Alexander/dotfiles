@@ -1,52 +1,52 @@
 // Place your key bindings in this file to override the defaults
 [
   {
-    "command": "-editor.action.clipboardCutAction",
-    "key": "ctrl+delete"
+    "key": "ctrl+delete",
+    "command": "-editor.action.clipboardCutAction"
   },
   {
-    "args": {
-      "by": "halfLine",
-      "to": "up",
-      "value": 5
-    },
-    "command": "cursorMove",
     "key": "ctrl+win+up",
-    "when": "editorTextFocus"
-  },
-  {
+    "command": "cursorMove",
     "args": {
+      "to": "up",
       "by": "halfLine",
-      "to": "down",
       "value": 5
     },
-    "command": "cursorMove",
-    "key": "ctrl+win+down",
     "when": "editorTextFocus"
   },
   {
-    "command": "-workbench.action.terminal.openNativeConsole",
+    "key": "ctrl+win+down",
+    "command": "cursorMove",
+    "args": {
+      "to": "down",
+      "by": "halfLine",
+      "value": 5
+    },
+    "when": "editorTextFocus"
+  },
+  {
     "key": "ctrl+shift+c",
+    "command": "-workbench.action.terminal.openNativeConsole",
     "when": "!terminalFocus"
   },
   {
-    "command": "copyRelativeFilePath",
     "key": "ctrl+shift+c",
+    "command": "copyRelativeFilePath",
     "when": "!editorFocus"
   },
   {
-    "command": "-copyRelativeFilePath",
     "key": "ctrl+k ctrl+shift+c",
+    "command": "-copyRelativeFilePath",
     "when": "!editorFocus"
   },
   {
-    "command": "copyRelativeFilePath",
     "key": "ctrl+shift+c",
+    "command": "copyRelativeFilePath",
     "when": "editorFocus"
   },
   {
-    "command": "-copyRelativeFilePath",
     "key": "ctrl+k ctrl+shift+c",
+    "command": "-copyRelativeFilePath",
     "when": "editorFocus"
   }
 ]
