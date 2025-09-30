@@ -40,28 +40,44 @@ case "$TERM" in
     xterm-color|*-256color) color_prompt=yes;;
 esac
 
-# uncomment for a colored prompt, if the terminal has the capability; turned
-# off by default to not distract the user: the focus in a terminal window
-# should be on the output of commands, not on the prompt
-# force_color_prompt=yes
+function git-status-count {
+  git rev-parse --git-dir >/dev/null 2>&1 || return
 
-if [ -n "$force_color_prompt" ]; then
-    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
-    else
-	color_prompt=
-    fi
-fi
+  local files_changed=0 lines_added=0 lines_deleted=0
 
-if [ "$color_prompt" = yes ]; then
-    # PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-    PS1='\[\033[0;32m\]\[\033[0m\033[0;32m\]\u\[\033[0;36m\] @ \[\033[0;36m\]\h \w\[\033[0;32m\]$(__git_ps1)\n\[\033[0;32m\]└─\[\033[0m\033[0;32m\] \$\[\033[0m\033[0;32m\] ▶\[\033[0m\] '
-else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-fi
+  while IFS=$'\t' read -r add del file; do
+    [[ $add =~ ^[0-9]+$ ]] && ((lines_added += add))
+    [[ $del =~ ^[0-9]+$ ]] && ((lines_deleted += del))
+  done < <(git diff --numstat 2>/dev/null)
+
+  while IFS=$'\t' read -r add del file; do
+    [[ $add =~ ^[0-9]+$ ]] && ((lines_added += add))
+    [[ $del =~ ^[0-9]+$ ]] && ((lines_deleted += del))
+  done < <(git diff --numstat --cached 2>/dev/null)
+
+  while IFS= read -r file; do
+    [[ -f "$file" ]] && {
+      local lines
+      lines=$(wc -l < "$file" 2>/dev/null) && [[ $lines =~ ^[0-9]+$ ]] && ((lines_added += lines))
+    }
+  done < <(git ls-files --others --exclude-standard 2>/dev/null)
+
+  files_changed=$(git status -s | wc -l)
+
+  local output=""
+  (( files_changed > 0 )) && output+="$(tput setaf 7)${files_changed}$(tput sgr0) "
+  (( lines_added > 0 )) && output+="$(tput setaf 2)+${lines_added}$(tput sgr0) "
+  (( lines_deleted > 0 )) && output+="$(tput setaf 1)-${lines_deleted}$(tput sgr0)"
+
+  echo "${output% }"
+}
+
+function parse_git_branch {
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/(\o33[36m\1\o33[0m) $(git-status-count)/"
+}
+
+PS1='\[\033[0;35m\]\w\[\033[0m\] $(parse_git_branch)\n$(if [ $? -eq 0 ]; then echo "\[\033[0;32m\]"; else echo "\[\033[0;31m\]"; fi)$\[\033[0m\] '
+
 unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
@@ -125,3 +141,9 @@ fi
 
 bind 'set show-all-if-ambiguous on'
 bind 'TAB:menu-complete'
+bind '"\e[1;5A":history-search-backward'
+bind '"\e[1;5B":history-search-forward'
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
