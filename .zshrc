@@ -1,7 +1,6 @@
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
-setopt SHARE_HISTORY
 setopt HIST_IGNORE_DUPS
 setopt HIST_IGNORE_SPACE
 setopt HIST_VERIFY
@@ -36,7 +35,7 @@ function git_status_count {
   files_changed=$(git status -s | wc -l | tr -d " ")
 
   local output=""
-  (( files_changed > 0 )) && output+="$(tput setaf 7)${files_changed}$(tput sgr0) "
+  (( files_changed > 0 )) && output+="${files_changed} "
   (( lines_added > 0 )) && output+="$(tput setaf 2)+${lines_added}$(tput sgr0) "
   (( lines_deleted > 0 )) && output+="$(tput setaf 1)-${lines_deleted}$(tput sgr0)"
 
@@ -47,9 +46,12 @@ function parse_git_branch {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/(\x1B[36m\1\x1B[0m) $(git_status_count)/"
 }
 
-
 setopt PROMPT_SUBST
 PS1='%F{magenta}%~%f $(parse_git_branch)
 %(?.%F{green}.%F{red})$%f '
 
-export PATH="$PATH:$HOME/.rvm/bin"
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
